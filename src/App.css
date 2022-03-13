@@ -1,38 +1,172 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Top{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+  width: 100vw;
+  background-image: url('./img/pattern-bg.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Top p1{
+  font-size: 24px;
+  color: #FFFFFF;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Search{
+  margin: 25px 0px 80px;
+  width: 90%;
+  height: 58px;
+  background: #FFFFFF;
+  border-radius: 15px;
+  display: flex;
+}
+
+.Input{
+  width: 85%;
+  height: 58px;
+  border-radius: 15px 0px 0px 15px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.Input input{
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 18px;
+}
+
+.Arow{
+  width: 15%;
+  height: 58px;
+  background: #000000;
+  border-radius: 0px 15px 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.Info{
+  top: 25%;
+  width: 90%;
+  /* height: 300px; */
+  background: #FFFFFF;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position:absolute;
+  padding: 15px 0px 15px 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.Info p1{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.05em;
+  color: #9B9B9B;
+  margin: 15px 0px 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Info p2{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.InfoTitles{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Map{
+  /* margin-top: 100vh; */
+  width: 100vw;
+  height: 65vh;
+  position:sticky
+}
+
+.Loading{
+  width: 100vw;
+  height: 65vh;
+  background-color: rgb(205, 213, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoadingInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 35% 0 35% 0;
+}
+
+.Test{
+  height: 100px;
+  width: 100px;
+  background-color: #000000;
+  position: absolute;
+}
+
+@media only screen and (min-width: 400px) {
+  .Search{
+    width: 555px;
   }
-  to {
-    transform: rotate(360deg);
+  .Info{
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px 0px 30px 0px;
+    align-items: flex-start;
   }
+  .Line{
+    width: 1px;
+    height: 120px;
+    margin: 10px 0px 10px 0px;
+    background-color: #D8D8D8;
+  }
+  .Info p1{
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 20px;
+  }
+  .Info p2{
+    font-size: 31px;
+    width: 100%;
+    line-height: 37px;
+  }
+  .InfoTitles{
+    align-items: flex-start;
+    justify-content: center;
+    width: 12%;
+  }
+  .LoadingInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2% 0 2% 0;
+  }
+
 }
