@@ -62,7 +62,7 @@
 .Info{
   top: 25%;
   width: 90%;
-  /* height: 300px; */
+  /* max-height: 250px; */
   background: #FFFFFF;
   border-radius: 15px;
   display: flex;
@@ -131,7 +131,13 @@
   position: absolute;
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 600px) {
+  .Top{
+    background-size: 100% 100%;
+  }
+  .Top p1{
+    font-size: 2.2vw;
+  }
   .Search{
     width: 555px;
   }
@@ -143,17 +149,17 @@
   }
   .Line{
     width: 1px;
-    height: 120px;
-    margin: 10px 0px 10px 0px;
+    height: 130px;
+    /* margin: 10px 0px 10px 0px; */
     background-color: #D8D8D8;
   }
   .Info p1{
-    font-size: 14px;
+    font-size: 1,5vw;
     line-height: 17px;
     margin-bottom: 20px;
   }
   .Info p2{
-    font-size: 31px;
+    font-size: 2vw;
     width: 100%;
     line-height: 37px;
   }

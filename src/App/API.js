@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://geo.ipify.org/api",
+  baseURL: "http://ip-api.com",
+  
 });
 
 export default api;
