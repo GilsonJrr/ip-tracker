@@ -90,8 +90,9 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 21px;
+  text-align: center;
   color: #000000;
-  margin-bottom: 15px;
+  margin: 0px 20px 15px 20px;
 }
 
 .InfoTitles{
@@ -166,7 +167,7 @@
   .InfoTitles{
     align-items: flex-start;
     justify-content: center;
-    width: 12%;
+    width: 13%;
   }
   .LoadingInfo{
     display: flex;

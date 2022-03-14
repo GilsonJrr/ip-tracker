@@ -30,10 +30,19 @@ function App() {
   useEffect(() => {
 
       async function LoadAPI(){
-        const response = await api.get("json/"+ipNumber);
-        setData(response.data);
-        console.log(data)
-        setLoading(false);
+        // const response = await api.get("country,city?apiKey=at_Z4vp3JFIVIoXWIxQbJ4HjGLcLQAKY&ipAddress="+ipNumber);
+        // setData(response.data);
+        // console.log(data)
+        // setLoading(false);
+        // api.catch((err) => {
+        //   console.error("ops! ocorreu um erro" + err);
+        // });
+        await api
+          .get("country,city?apiKey=at_Z4vp3JFIVIoXWIxQbJ4HjGLcLQAKY&ipAddress="+ipNumber)
+          .then((response) => setData(response.data))
+          .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+          });
       }
       LoadAPI();
       
@@ -48,33 +57,38 @@ function App() {
       setLoading(true)
   
       async function LoadAPI(){
-        const response = await api.get("json/"+ipNumber);
-        setData(response.data);
-        console.log(data)
+        await api
+          .get("country,city?apiKey=at_Z4vp3JFIVIoXWIxQbJ4HjGLcLQAKY&ipAddress="+ipNumber)
+          .then((response) => setData(response.data))
+          .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+            setEmpty(true)
+          });
       }
   
       LoadAPI();
   
-      position = ([data?.lat, data?.lon]);
+      position = ([data?.location.lat, data?.location.lng]);
+
       setTimeout(()=>{
         setLoading(false)
-      },500)
+      },2000)
     
   };
 
   useEffect(refresh, []);
 
-  if(data?.status === 'success'){
-    position = ([data?.lat, data?.lon]);
+  // if(data?.status === 'success'){
+    position = ([data?.location.lat, data?.location.lng]);
     setTimeout(()=>{
       setLoadingMap(false)
-    },500)
-  }
+    },2000)
+  // }
 
   function Error(){
-    if(data?.status === 'fail'){
+    if(empty === true){
       setData('')
-      setEmpty(true)
+      // setEmpty(true)
       setLoading(true)
       setLoadingMap(true)
     }
@@ -128,22 +142,22 @@ function App() {
       <div className='Info'>
         <div className='InfoTitles'>
           <p1>IP ADDRESS</p1>
-          <p2>{data?.query}</p2>
-          {/* <p2>{data?.ip}</p2> */}
+          {/* <p2>{data?.query}</p2> */}
+          <p2>{data?.ip}</p2>
           {/* <p2>8.8.8.8</p2> */}
         </div>
         <div className='Line'/>
         <div className='InfoTitles'>
           <p1>LOCATION</p1>
-          {/* <p2>{data?.location.region}, {data?.location.country} {data?.as.asn}</p2> */}
-          <p2>{data?.region}, {data?.country} {data?.zip}</p2>
+          <p2>{data?.location.region}, {data?.location.country} {data?.as.asn}</p2>
+          {/* <p2>{data?.region}, {data?.country} {data?.zip}</p2> */}
           {/* <p2>Brooklyn, NY 10001</p2> */}
         </div>
         <div className='Line'/>
         <div className='InfoTitles'>
           <p1>TIMEZONE</p1>
-          {/* <p2>UTC{data?.location.timezone}</p2> */}
-          <p2>{data?.timezone}</p2>
+          <p2>UTC{data?.location.timezone}</p2>
+          {/* <p2>{data?.timezone}</p2> */}
           {/* <p2>UTC - 05:00</p2> */}
         </div>
         <div className='Line'/>
